@@ -6,7 +6,7 @@ musicBtn.addEventListener('click', () => {
     if (bgMusic.paused) {
         bgMusic.play();
         musicBtn.classList.add('playing');
-        musicBtn.innerHTML = '⏸';
+        musicBtn.innerHTML = '\u23F8'; 
         startHeartsEffect();
     } else {
         bgMusic.pause();
