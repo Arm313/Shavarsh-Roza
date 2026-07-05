@@ -25,10 +25,10 @@ function startHeartsEffect() {
         heart.style.left = Math.random() * 100 + 'vw';
         heart.style.animationDuration = Math.random() * 2 + 3 + 's';
         heart.style.opacity = Math.random();
-        document.body.appendChild(heart);
+        document.body.prepend(heart);
         
-        setTimeout(() => { heart.remove(); }, 4000);
-    }, 600);
+        setTimeout(() => { heart.remove(); }, 5000);
+    }, 500);
 }
 
 // 2. Էլեգանտ Scroll Անիմացիա (Intersection Observer)
