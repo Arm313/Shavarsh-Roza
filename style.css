@@ -1,0 +1,395 @@
+:root {
+    --primary-gold: #c5a880;
+    --dark-gold: #aa8b5c;
+    --light-cream: #faf7f2;
+    --dark-text: #2c2c2c;
+    --light-text: #666;
+    --transition: all 0.6s cubic-bezier(0.25, 1, 0.5, 1);
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: 'Noto Serif Armenian', serif;
+    background-color: #ffffff;
+    color: var(--dark-text);
+    overflow-x: hidden;
+    /* background-image: url('./assets/bg.jpg'); */
+}
+
+.container {
+    width: 100%;
+    max-width: 650px;
+    margin: 0 auto;
+    padding: 0 25px;
+}
+
+.text-center { text-align: center; }
+.text-white { color: #fff !important; }
+.bg-light { background-color: var(--light-cream); }
+.font-italic { font-style: italic; }
+.relative-z { position: relative; z-index: 2; }
+
+.music-wrapper {
+    position: fixed;
+    top: 25px;
+    right: 25px;
+    z-index: 999;
+}
+.music-circle-btn {
+    width: 45px;
+    height: 45px;
+    border-radius: 50%;
+    border: 1px solid var(--primary-gold);
+    background: rgba(255, 255, 255, 0.85);
+    backdrop-filter: blur(5px);
+    cursor: pointer;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: var(--transition);
+}
+.music-circle-btn.playing {
+    animation: rotate 4s linear infinite;
+    background: var(--primary-gold);
+}
+@keyframes rotate { 100% { transform: rotate(360deg); } }
+
+.hero-section {
+    position: relative;
+    height: 100vh;
+    display: flex;
+    align-items: end;
+    justify-content: center;
+    background: url('https://images.unsplash.com/photo-1511285560929-80b456fea0bc?q=80&w=2069') center/cover no-repeat;
+    text-align: center;
+    padding-bottom: 50px;
+}
+.overlay {
+    position: absolute;
+    top:0; left:0; width:100%; height:100%;
+    background: linear-gradient(to bottom, rgba(0,0,0,0.4), rgba(0,0,0,0.6));
+}
+.hero-content {
+    position: relative;
+    z-index: 2;
+    color: #fff;
+}
+.monogram {
+    font-family: 'Great Vibes', cursive;
+    font-size: 3.5rem;
+    color: var(--primary-gold);
+    margin-bottom: 10px;
+}
+.couple-names {
+    font-size: 2.8rem;
+    font-weight: 300;
+    letter-spacing: 2px;
+}
+.divider {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 15px 0;
+    color: var(--primary-gold);
+}
+.divider span {
+    width: 40px;
+    height: 1px;
+    background: var(--primary-gold);
+    margin: 0 10px;
+}
+.hero-date {
+    font-size: 1.2rem;
+    letter-spacing: 4px;
+    font-weight: 300;
+}
+
+.arrow-down span {
+    display: block;
+    width: 15px;
+    height: 15px;
+    border-bottom: 2px solid #fff;
+    border-right: 2px solid #fff;
+    transform: rotate(45deg);
+    margin: -5px auto 0 auto;
+    animation: scrollArrow 2s infinite;
+}
+.arrow-down span:nth-child(2) { animation-delay: -0.2s; }
+@keyframes scrollArrow {
+    0% { opacity: 0; transform: rotate(45deg) translate(-10px, -10px); }
+    50% { opacity: 1; }
+    100% { opacity: 0; transform: rotate(45deg) translate(10px, 10px); }
+}
+
+.section {
+    padding: 90px 0;
+}
+.pre-title {
+    font-family: 'Great Vibes', cursive;
+    font-size: 2.2rem;
+    color: var(--primary-gold);
+}
+.section-title {
+    font-size: 1.8rem;
+    font-weight: 400;
+    margin-bottom: 25px;
+    letter-spacing: 1px;
+    position: relative;
+}
+.invitation-p {
+    font-size: 1.05rem;
+    color: var(--light-text);
+    max-width: 500px;
+    margin: 0 auto 20px auto;
+    line-height: 1.8;
+}
+
+
+.save-the-date {
+    background: var(--primary-gold);
+    color: #fff !important;
+    border-radius: 50%;
+    font-weight: bold;
+    box-shadow: 0 4px 10px rgba(197, 168, 128, 0.4);
+}
+
+.countdown-bg {
+    position: relative;
+    background: url('https://images.unsplash.com/photo-1519741497674-611481863552?q=80&w=2070') center/cover no-repeat fixed;
+}
+.luxury-countdown {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 40px;
+}
+.count-box {
+    background: rgba(255, 255, 255, 0.15);
+    backdrop-filter: blur(8px);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    color: white;
+    width: 22%;
+    padding: 20px 0;
+    text-align: center;
+    border-radius: 4px;
+}
+.count-box span { font-size: 2rem; font-weight: 300; display: block; }
+.count-box p { font-size: 0.8rem; text-transform: uppercase; letter-spacing: 1px; margin-top: 5px; opacity: 0.8;}
+
+.signature {
+    margin-top: 50px;
+}
+.signature p { font-size: 1.1rem; color: var(--light-text); }
+.signature h3 {
+    font-family: 'Great Vibes', cursive;
+    font-size: 3rem;
+    color: var(--dark-gold);
+    margin-top: 10px;
+}
+
+.fade-in {
+    opacity: 0;
+    transform: translateY(40px);
+    transition: var(--transition);
+}
+.fade-in.appear {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.heart-particle {
+    position: fixed;
+    color: var(--primary-gold);
+    font-size: 1.2rem;
+    pointer-events: none;
+    z-index: 998;
+    animation: floatHeart 4s linear forwards;
+}
+@keyframes floatHeart {
+    0% { transform: translateY(100vh) translateX(0) scale(0); opacity: 1; }
+    100% { transform: translateY(-10vh) translateX(100px) scale(1.2); opacity: 0; }
+}
+.timeline-img-box {
+    width: 100%;
+    height: 180px; /* Նկարի բարձրությունը */
+    overflow: hidden;
+    border-radius: 4px;
+    margin-bottom: 15px;
+    border: 1px solid rgba(197, 168, 128, 0.2);
+}
+
+.timeline-img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover; /* Թույլ է տալիս, որ նկարը չծռվի */
+    transition: transform 0.5s ease;
+}
+
+.timeline-card:hover .timeline-img {
+    transform: scale(1.05);
+}
+
+.wedding-calendar {
+    max-width: 380px;
+    margin: 40px auto;
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+    background: transparent;
+    padding: 20px;
+    text-align: center;
+}
+
+.calendar-title {
+    font-size: 2rem;
+    font-weight: 300;
+    color: #4a4a4a;
+    margin-bottom: 35px;
+    display: flex;
+    justify-content: center;
+    gap: 30px;
+}
+
+.calendar-title .year {
+    color: #333;
+}
+
+.calendar-weekdays {
+    display: grid;
+    grid-template-columns: repeat(7, 1fr);
+    margin-bottom: 25px;
+}
+
+.calendar-weekdays div {
+    font-size: 0.85rem;
+    color: #8e8e8e;
+    text-transform: lowercase;
+    font-weight: 400;
+}
+
+.calendar-days {
+    display: grid;
+    grid-template-columns: repeat(7, 1fr);
+    align-items: center;
+}
+
+.calendar-days span {
+    font-size: 1.1rem;
+    color: #4a4a4a;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 40px;
+    position: relative;
+    font-weight: 300;
+}
+
+.calendar-days .heart-day {
+    color: #ffffff;
+    font-weight: bold;
+    z-index: 1;
+}
+
+.calendar-days .heart-day::before {
+    content: '❤';
+    position: absolute;
+    font-size: 2.6rem; /* Սրտիկի չափսը */
+    color: #e54747;    /* Կարմիր սրտիկի գույնը */
+    z-index: -1;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -46%); 
+}
+
+.agenda-section {
+    max-width: 500px;
+    margin: 0 auto;
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+    background: transparent;
+    padding: 40px 20px;
+    text-align: center;
+}
+
+.agenda-main-title {
+    font-size: 2.5rem;
+    font-weight: 400;
+    color: #2c2c2c;
+    margin-bottom: 40px;
+    letter-spacing: 1px;
+}
+
+.agenda-item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    position: relative;
+    margin-bottom: 30px;
+}
+
+.agenda-time {
+    font-size: 2.2rem;
+    font-weight: 300;
+    color: #4a4a4a;
+    margin-bottom: 10px;
+}
+
+.agenda-title {
+    font-size: 1.3rem;
+    font-weight: 600;
+    color: #333333;
+    margin-bottom: 8px;
+}
+
+.agenda-address {
+    font-size: 1rem;
+    color: #777777;
+    font-weight: 300;
+    margin-bottom: 25px;
+}
+
+.agenda-image-box {
+    max-width: 320px;
+    width: 100%;
+    margin-bottom: 25px;
+}
+
+.agenda-img {
+    width: 100%;
+    height: auto;
+    display: block;
+}
+
+
+.agenda-map-btn {
+    display: inline-block;
+    text-decoration: none;
+    color: #333333;
+    font-size: 0.95rem;
+    font-weight: 300;
+    padding: 10px 45px;
+    border: 1px solid #333333;
+    border-radius: 25px; 
+    background-color: transparent;
+    transition: all 0.3s ease;
+}
+
+.agenda-map-btn:hover {
+    background-color: #333333;
+    color: #ffffff;
+}
+
+
+.timeline-line {
+    width: 1px;
+    height: 60px;
+    background-color: #000000;
+    margin-top: 35px;
+}
+
