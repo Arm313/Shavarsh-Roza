@@ -2,19 +2,6 @@
 const musicBtn = document.getElementById('musicBtn');
 const bgMusic = document.getElementById('bgMusic');
 
-musicBtn.addEventListener('click', () => {
-    if (bgMusic.paused) {
-        bgMusic.play();
-        musicBtn.classList.add('playing');
-        musicBtn.innerHTML = '\u23F8'; 
-        startHeartsEffect();
-    } else {
-        bgMusic.pause();
-        musicBtn.classList.remove('playing');
-        musicBtn.innerHTML = '🎵';
-        clearInterval(heartInterval);
-    }
-});
 
 let heartInterval;
 function startHeartsEffect() {
@@ -43,7 +30,7 @@ const appearOnScroll = new IntersectionObserver((entries, observer) => {
 
 fadeElements.forEach(element => appearOnScroll.observe(element));
 
-// 3. Հետհաշվարկ (Countdown)
+
 const weddingDate = new Date('August 8, 2026 09:00:00').getTime();
 
 setInterval(() => {
@@ -60,3 +47,34 @@ setInterval(() => {
     document.getElementById('minutes').textContent = minutes < 10 ? '0' + minutes : minutes;
     document.getElementById('seconds').textContent = seconds < 10 ? '0' + seconds : seconds;
 }, 1000);
+
+
+function audioAutoplay() {
+    if (bgMusic.paused) {
+        bgMusic.play();
+        musicBtn.classList.add('playing');
+        musicBtn.innerHTML = '\u23F8'; 
+        startHeartsEffect();
+    }
+}
+
+window.addEventListener("click", audioAutoplay, { once: true }); 
+window.addEventListener("touchstart", audioAutoplay, { once: true }); 
+
+
+musicBtn.addEventListener('click', (e) => {
+    e.stopPropagation(); 
+    
+    if (bgMusic.paused) {
+        bgMusic.play();
+        musicBtn.classList.add('playing');
+        musicBtn.innerHTML = '\u23F8'; 
+        startHeartsEffect();
+    } else {
+        bgMusic.pause();
+        musicBtn.classList.remove('playing');
+        musicBtn.innerHTML = '🎵';
+        clearInterval(heartInterval);
+    }
+}, false);
+
